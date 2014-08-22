@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>///inicijalizacija varijabli
-var_grav = 0.4;
+var_grav = 0.2;
 var_hspeed = 0;
 var_vspeed = 0;
 var_move_speed = 4;
-var_jump_speed = 8;
+var_jump_speed = 6;
 </string>
           </argument>
         </arguments>
@@ -70,17 +70,6 @@ if (var_vspeed &lt; 10)
 if (place_meeting(x, y+1,obj_Wall)) // da li postoji obj_test_tile jedan pixel ispod y koordinate igraca
 {
     var_vspeed = var_key_jump * -var_jump_speed;
-}
-
-//Wall slide
-if (place_meeting (x-1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0)
-{
-    var_vspeed = 1.5;
-}   
-else 
-if (place_meeting (x+1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0)
-{
-    var_vspeed = 1.5;
 }
 
 //horizontalna kolizija
