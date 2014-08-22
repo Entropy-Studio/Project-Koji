@@ -105,29 +105,17 @@ if (place_meeting(x,y+var_vspeed,obj_Wall))
 
 //klizanje niz zidove
 
-if place_meeting (x-1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall)
+if (place_meeting (x-1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0 &amp;&amp; keyboard_check(vk_left)==1)
 {
-    if var_vspeed &gt; 0
-    {
-        var_vspeed = 1.5;
-        var_grav = 0.05;
-    }  
-    if var_key_jump
-        var_grav = 0.4;
+    var_vspeed = 1.5;
 }   
-    else if place_meeting (x+1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall)
-        {
-            if var_vspeed &gt; 0
-            {
-                var_vspeed = 1.5;
-                var_grav = 0.05;
-            }  
-            if var_key_jump
-               var_grav = 0.4;
-        }  
-             else
-                  var_grav = 0.4;
+else 
+if (place_meeting (x+1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0 &amp;&amp; keyboard_check(vk_right)==1)
+{
+    var_vspeed = 1.5;
+}  
                   
+/*
 //skok o zid
 
 if place_meeting (x-1, y, obj_Wall)
@@ -147,7 +135,7 @@ if place_meeting (x+1, y, obj_Wall)
     }
     
 }
-
+*/
 
 //generalno kretanje - iskomentarisao sam da bude izdvojeno da ga ne spojim sa necim
 
