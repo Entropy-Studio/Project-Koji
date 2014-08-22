@@ -19,7 +19,7 @@
     <room>rooms\rm_Test</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41873.0999497685</constant>
+    <constant name="GM_build_date">41873.146516956</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

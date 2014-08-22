@@ -31,6 +31,7 @@ var_hspeed = 0;
 var_vspeed = 0;
 var_move_speed = 4;
 var_jump_speed = 7.5;
+var_sliding = false;
 </string>
           </argument>
         </arguments>
@@ -108,39 +109,57 @@ if (place_meeting(x,y+var_vspeed,obj_Wall))
 if (place_meeting (x-1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0 &amp;&amp; keyboard_check(vk_left)==1)
 {
     var_vspeed = 1.5;
+    var_sliding = true;
 }   
 else 
 if (place_meeting (x+1, y, obj_Wall) &amp;&amp; !place_meeting (x, y+1, obj_Wall) &amp;&amp; var_vspeed &gt; 0 &amp;&amp; keyboard_check(vk_right)==1)
 {
     var_vspeed = 1.5;
-}  
-                  
-/*
+    var_sliding = true;
+}
+else var_sliding = false;   
+               
 //skok o zid
 
-if place_meeting (x-1, y, obj_Wall)
-{
-   if var_key_jump
-    {
-    var_vspeed = -7.5;
-    }
-    
-}
 
-if place_meeting (x+1, y, obj_Wall)
-{
-    if var_key_jump
-    {
-    var_vspeed = -7.5;
-    }
-    
-}
-*/
+
 
 //generalno kretanje - iskomentarisao sam da bude izdvojeno da ga ne spojim sa necim
 
 x += var_hspeed;
 y += var_vspeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+if (keyboard_check(vk_left))
+{
+    image_xscale = -1;
+}
+if (keyboard_check(vk_right))
+{
+    image_xscale = 1;
+}
 </string>
           </argument>
         </arguments>
