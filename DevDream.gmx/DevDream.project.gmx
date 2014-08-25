@@ -42,10 +42,9 @@
   <rooms name="rooms">
     <room>rooms\rm_Main_Menu</room>
     <room>rooms\rm_Test</room>
-    <room>rooms\rm_Pause</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41875.4245731019</constant>
+    <constant name="GM_build_date">41876.752634838</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>
