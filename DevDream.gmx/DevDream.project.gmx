@@ -36,7 +36,7 @@
     <room>rooms\rm_Test</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41878.4944721991</constant>
+    <constant name="GM_build_date">41878.638154537</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

@@ -26,6 +26,30 @@
           <argument>
             <kind>1</kind>
             <string>interest = "new game";
+menu_move = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>menu_move=true;
 </string>
           </argument>
         </arguments>
@@ -49,47 +73,55 @@
           <argument>
             <kind>1</kind>
             <string>script_Key_Controller();
-if (control_up)
+if (menu_move)
 {
-    ///////////////////////////////
-    if (interest == "new game")
+    if (step_up)
     {
-        interest = "quit";
+            ///////////////////////////////
+            if (interest == "new game")
+            {
+                interest = "quit";
+            }
+            else if (interest == "quit")
+            {
+                interest = "options";
+            }
+            else if (interest == "options")
+            {
+                interest = "load";
+            }
+            else if (interest == "load")
+            {
+                interest = "new game";
+            }
+            ///////////////////////////////
+    menu_move=false;
+    alarm[0] = 10;
     }
-    else if (interest == "quit")
+
+    if (step_down)
     {
-        interest = "options";
+        ///////////////////////////////
+        if (interest == "new game")
+        {
+            interest = "load";
+        }
+        else if (interest == "load")
+        {
+            interest = "options";
+        }
+        else if (interest == "options")
+        {
+            interest = "quit";
+        }
+        else if (interest == "quit")
+        {
+            interest = "new game";
+        }
+        ///////////////////////////////
+        menu_move=false;
+        alarm[0] = 10;
     }
-    else if (interest == "options")
-    {
-        interest = "load";
-    }
-    else if (interest == "load")
-    {
-        interest = "new game";
-    }
-    ///////////////////////////////
-}
-if (control_down)
-{
-    ///////////////////////////////
-    if (interest == "new game")
-    {
-        interest = "load";
-    }
-    else if (interest == "load")
-    {
-        interest = "options";
-    }
-    else if (interest == "options")
-    {
-        interest = "quit";
-    }
-    else if (interest == "quit")
-    {
-        interest = "new game";
-    }
-    ///////////////////////////////
 }
 if (control_enter)
 {

@@ -154,8 +154,9 @@ y += var_vspeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_Key_Controller();
-draw_self();
+            <string>draw_self();
+
+script_Key_Controller();
 
 draw_text(x-20, y-50, var_vspeed);
 
