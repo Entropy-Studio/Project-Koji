@@ -22,18 +22,10 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\script_Save_And_Load.gml</script>
+    <script>scripts\script_Key_Controller.gml</script>
   </scripts>
   <objects name="objects">
-    <objects name="Main Menu">
-      <object>objects\obj_Main_Menu_Control</object>
-      <object>objects\obj_New_Game</object>
-      <object>objects\obj_Load_Game</object>
-      <object>objects\obj_Options</object>
-      <object>objects\obj_Quit_Game</object>
-      <object>objects\obj_Resume_Game</object>
-      <object>objects\obj_Save_Game</object>
-      <object>objects\obj_Main_Menu</object>
-    </objects>
+    <object>objects\obj_Main_Menu_Control</object>
     <object>objects\obj_Player</object>
     <object>objects\obj_Wall</object>
     <object>objects\obj_Pause_Control</object>
@@ -44,7 +36,7 @@
     <room>rooms\rm_Test</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41877.0282229745</constant>
+    <constant name="GM_build_date">41878.4944721991</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

@@ -62,6 +62,8 @@ if window_get_fullscreen()
     {
         window_set_fullscreen(true);
     }
+    
+display_reset(4, true);
 </string>
           </argument>
         </arguments>

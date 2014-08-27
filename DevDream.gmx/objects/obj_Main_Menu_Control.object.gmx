@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.start = true;
-global.load = false;
-global.options = false;
-global.quit = false;
+            <string>interest = "new game";
 </string>
           </argument>
         </arguments>
@@ -51,59 +48,76 @@ global.quit = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_down)) &amp;&amp; global.start = true
+            <string>script_Key_Controller();
+if (control_up)
 {
-    global.start = false;
-    global.load = true;
+    ///////////////////////////////
+    if (interest == "new game")
+    {
+        interest = "quit";
+    }
+    else if (interest == "quit")
+    {
+        interest = "options";
+    }
+    else if (interest == "options")
+    {
+        interest = "load";
+    }
+    else if (interest == "load")
+    {
+        interest = "new game";
+    }
+    ///////////////////////////////
 }
-
-else if (keyboard_check_pressed(vk_up)) &amp;&amp; global.start = true
+if (control_down)
 {
-    global.start = false;
-    global.quit = true;
+    ///////////////////////////////
+    if (interest == "new game")
+    {
+        interest = "load";
+    }
+    else if (interest == "load")
+    {
+        interest = "options";
+    }
+    else if (interest == "options")
+    {
+        interest = "quit";
+    }
+    else if (interest == "quit")
+    {
+        interest = "new game";
+    }
+    ///////////////////////////////
 }
-
-else if (keyboard_check_pressed(vk_down)) &amp;&amp; global.load = true
+if (control_enter)
 {
-    global.load = false;
-    global.options = true;
-}
-
-else if (keyboard_check_pressed(vk_up)) &amp;&amp; global.load = true
-{
-    global.load = false;
-    global.start = true;
-}
-
-else if (keyboard_check_pressed(vk_down)) &amp;&amp; global.options = true
-{
-    global.options = false;
-    global.quit = true;
-}
-
-else if (keyboard_check_pressed(vk_up)) &amp;&amp; global.options = true
-{
-    global.options = false;
-    global.load = true;
-}
-
-else if (keyboard_check_pressed(vk_down)) &amp;&amp; global.quit = true
-{
-    global.quit = false;
-    global.start = true;
-}
-
-else if (keyboard_check_pressed(vk_up)) &amp;&amp; global.quit = true
-{
-    global.quit = false;
-    global.options = true;
+    ///////////////////////////////
+    if (interest == "new game")
+    {
+        room_goto(rm_Test);
+    }
+    else if (interest == "load")
+    {
+        show_message("Coming soon");
+    }
+    else if (interest == "options")
+    {
+        show_message("Coming soon");
+    }
+    else if (interest == "quit")
+    {    
+        game_end();
+    }
+    ///////////////////////////////
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="13">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -120,24 +134,34 @@ else if (keyboard_check_pressed(vk_up)) &amp;&amp; global.quit = true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.start = true
+            <string>draw_text(100, 100, gamepad_axis_value(0, gp_axislv));
+if (interest == "new game")
 {
-    room_goto(rm_Test);
+    draw_sprite(spr_New_Game, 1, view_wview[0]/2, view_hview[0]/2 - 300);
+    draw_sprite(spr_Load_Game, 0, view_wview[0]/2, view_hview[0]/2 - 100);
+    draw_sprite(spr_Options, 0, view_wview[0]/2, view_hview[0]/2 + 100);
+    draw_sprite(spr_Quit_Game, 0, view_wview[0]/2, view_hview[0]/2 + 300);
 }
-
-else if global.load = true
+else if (interest == "load")
 {
-     show_message("Load file missing NIGGAAAAAAA");
+    draw_sprite(spr_New_Game, 0, view_wview[0]/2, view_hview[0]/2 - 300);
+    draw_sprite(spr_Load_Game, 1, view_wview[0]/2, view_hview[0]/2 - 100);
+    draw_sprite(spr_Options, 0, view_wview[0]/2, view_hview[0]/2 + 100);
+    draw_sprite(spr_Quit_Game, 0, view_wview[0]/2, view_hview[0]/2 + 300);
 }
-
-else if global.options = true
+else if (interest == "options")
 {
-    room_goto(rm_Options);
+    draw_sprite(spr_New_Game, 0, view_wview[0]/2, view_hview[0]/2 - 300);
+    draw_sprite(spr_Load_Game, 0, view_wview[0]/2, view_hview[0]/2 - 100);
+    draw_sprite(spr_Options, 1, view_wview[0]/2, view_hview[0]/2 + 100);
+    draw_sprite(spr_Quit_Game, 0, view_wview[0]/2, view_hview[0]/2 + 300);
 }
-
-else if global.quit = true
+else if (interest == "quit")
 {
-     game_end();
+    draw_sprite(spr_New_Game, 0, view_wview[0]/2, view_hview[0]/2 - 300);
+    draw_sprite(spr_Load_Game, 0, view_wview[0]/2, view_hview[0]/2 - 100);
+    draw_sprite(spr_Options, 0, view_wview[0]/2, view_hview[0]/2 + 100);
+    draw_sprite(spr_Quit_Game, 1, view_wview[0]/2, view_hview[0]/2 + 300);
 }
 </string>
           </argument>

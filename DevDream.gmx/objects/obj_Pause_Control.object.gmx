@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="9" enumb="27">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0, 0, obj_Pause_Menu_Control);
+            <string>script_Key_Controller();
+if (control_escape)
+{
+    instance_create(0, 0, obj_Pause_Menu_Control);
+}
 </string>
           </argument>
         </arguments>

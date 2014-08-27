@@ -52,14 +52,15 @@ image_index = 0;
             <string>view_wport[0] = 1920;
 view_hport[0] = 1080;
 
-view_wview[0] = 1920;
-view_hview[0] = 1080;
+view_wview[0] = 1280;
+view_hview[0] = 720;
 window_set_size(1920, 1080);
 surface_resize(application_surface, 1920, 1080);
 
 view_enabled = 1;
 view_visible[0] = 1;
 
+display_reset(4, true);
 </string>
           </argument>
         </arguments>
